@@ -4,6 +4,8 @@ public class ValidNumber {
 
         boolean result = false;
 
+        s = s.trim();
+
         String[] tokens = s.split("e");
 
         String digitString;
@@ -18,13 +20,22 @@ public class ValidNumber {
                 return false;
             }
             digitString = tokens[0];
+            expString = null;
         } else {
             return false;
         }
 
+        return (validateDigit(digitString) && validateExp(expString));
+    }
+
+    private boolean validateExp(String expString) {
 
 
-        return result;
+
+    }
+
+    private boolean validateDigit(String digitString) {
+
     }
 
 }
