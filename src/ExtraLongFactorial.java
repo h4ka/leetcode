@@ -6,8 +6,8 @@ public class ExtraLongFactorial {
 
         BigInteger factor = BigInteger.valueOf(n);
 
-        for (int i = n-1; i > 1; i--){
-            factor = factor.multiply(BigInteger.valueOf(i));
+        for ( n = n-1; n > 1; n--){
+            factor = factor.multiply(BigInteger.valueOf(n));
         }
 
         return String.valueOf(factor);
