@@ -27,5 +27,9 @@ public class ValidNumberTest {
         assertFalse(validNumber.isNumber(" --6 "));
         assertFalse(validNumber.isNumber("-+3"));
         assertFalse(validNumber.isNumber("95a54e53"));
+        assertFalse(validNumber.isNumber(""));
+        assertFalse(validNumber.isNumber("-"));
+        assertFalse(validNumber.isNumber("01"));
+        assertFalse(validNumber.isNumber(".1"));
     }
 }

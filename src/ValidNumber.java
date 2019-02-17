@@ -4,9 +4,10 @@ public class ValidNumber {
 
         s = s.trim();
 
-        if (s.startsWith("e") || s.endsWith("e")){
+        if (s.equals("") || s.equals(".") || (s.startsWith("e") || s.endsWith("e"))){
             return false;
         }
+
 
         String[] tokens = s.split("e");
 
@@ -58,6 +59,7 @@ public class ValidNumber {
     private boolean validateDigit(String digitString) {
 
 
+        System.out.println(String.valueOf(1));
         char[] chars = digitString.toCharArray();
 
         boolean plusMinus = false;
@@ -69,19 +71,35 @@ public class ValidNumber {
         for (char c : chars) {
 
             if (idx == 0){
+
                 if (c == '+' || c == '-') {
-                    plusMinus = true;
-                    idx++;
-                    continue;
+                    if (chars.length > 1) {
+                        plusMinus = true;
+                        idx++;
+                        continue;
+                    } else {
+                        return false;
+                    }
                 }
                 else if (c == '0') {
                     zero = true;
                     idx++;
                     continue;
-                } else if (c < 49 || c > 57)
+                } else if (c == '.'){
+                    if (chars.length > 1) {
+                        floating = true;
+                        idx++;
+                        continue;
+                    } else {
+                        return false;
+                    }
+                }
+                else if (c < 49 || c > 57){
                     return false;
+                }
 
             }
+
             else if (idx == 1) {
 
                 if (plusMinus) {
