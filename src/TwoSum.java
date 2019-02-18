@@ -1,31 +1,23 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class TwoSum {
 
-    public int[] twoSum(int[] nums, int target) {
+    public static int[] twoSum(int[] nums, int target) {
 
-        boolean isFound = false;
-        int a = 0;
-        int[] result = new int[2];
+        // Find and return indices of x and y from nums array where x + y == target
 
-        while(!isFound){
+        Map<Integer,Integer> map = new HashMap<>();
 
-            for(int i = a + 1; i <= nums.length - 1; i++) {
+        for (int i = 0; i < nums.length; i++){
 
-                if ((nums[a] + nums[i]) == target) {
-
-                    result[0] = a;
-                    result[1] = i;
-                    isFound = true;
-                    break;
-
-                }
+            int x = target - nums[i];
+            if (map.containsKey(x)){
+                return new int[] {map.get(x), i};
+            } else {
+                map.put(nums[i], i);
             }
-
-            if (a == nums.length - 1 ){
-                break;
-            }
-            a++;
         }
-        return result;
+        return null;
     }
-
 }
