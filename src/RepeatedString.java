@@ -11,21 +11,11 @@ public class RepeatedString {
         return cnt;
     }
 
-
     static long repeatedString(String s, long n){
 
         long numOfAs = 0;
-
-        long whole = n / s.length();
-        long remainder = n % s.length();
-
-        long aInS = getNumOfAs(s);
-
-        numOfAs += aInS * whole;
-
-        aInS = getNumOfAs(s.substring(0,(int) remainder));
-
-        numOfAs += aInS;
+        numOfAs += getNumOfAs(s) * (n / s.length());
+        numOfAs += getNumOfAs(s.substring(0,(int)(n % s.length())));
 
         return numOfAs;
     }

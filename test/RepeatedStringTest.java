@@ -17,6 +17,8 @@ public class RepeatedStringTest {
                 "bcbccacaacbbacabcabccacbccbababbbbabcccbbcbcaccababccbcbcaabbbaabbcaabbbbbbabcbcbbcaccbccaabacbbacbc",
                 649606239668L));
 
+        assertEquals(3, RepeatedString.repeatedString("bab", 10));
+
     }
 }
 
